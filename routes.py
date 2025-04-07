@@ -37,4 +37,5 @@ class AppearancesResource(Resource):
 
             return new_appearance.to_dict(), 201
 
-        
+        except Exception as e:
+            return {"errors": [str(e)]}, 400
