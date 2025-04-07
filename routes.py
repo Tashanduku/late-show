@@ -14,3 +14,8 @@ class EpisodeById(Resource):
             return {"error": "Episode not found"}, 404
         return episode.to_dict(), 200
 
+class GuestsResource(Resource):
+    def get(self):
+        guests = Guest.query.all()
+        return [ g.to_dict() for g in guests ], 200
+
