@@ -29,3 +29,10 @@ class Guest(db.Model):
     occupation = db.Column(db.String)
 
     appearances = db.relationship('Appearance', backref='guest', cascade="all, delete")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "occupation": self.occupation
+        }
