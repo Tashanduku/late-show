@@ -12,4 +12,10 @@ class Episode(db.Model):
 
     appearances = db.relationship('Appearance', backref='episode', cascade="all, delete")
 
-    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "date": self.date,
+            "number": self.number,
+            "appearances": [a.to_dict() for a in self.appearances]
+        }
