@@ -19,3 +19,22 @@ class GuestsResource(Resource):
         guests = Guest.query.all()
         return [ g.to_dict() for g in guests ], 200
 
+class AppearancesResource(Resource):
+    def post(self):
+        data = request.get_json()
+        try:
+            rating = data["rating"]
+            episode_id = data["episode_id"]
+            guest_id = data["guest_id"]
+
+            new_appearance = Appearance(
+                rating=rating,
+                episode_id=episode_id,
+                guest_id=guest_id
+            )
+            db.session.add(new_appearance)
+            db.session.commit()
+
+            return new_appearance.to_dict(), 201
+
+        
