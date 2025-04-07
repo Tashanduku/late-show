@@ -20,7 +20,6 @@ class Episode(db.Model):
             "appearances": [a.to_dict() for a in self.appearances]
         }
 
-
 class Guest(db.Model):
     __tablename__ = 'guests'
 
@@ -37,7 +36,6 @@ class Guest(db.Model):
             "occupation": self.occupation
         }
 
-
 class Appearance(db.Model):
     __tablename__ = 'appearances'
 
@@ -52,7 +50,6 @@ class Appearance(db.Model):
             raise ValueError("Rating must be between 1 and 5")
         return rating
 
-
     def to_dict(self):
         return {
             "id": self.id,
@@ -66,4 +63,3 @@ class Appearance(db.Model):
                 "number": self.episode.number
             }
         }
-
