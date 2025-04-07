@@ -2,6 +2,18 @@ from flask import request, jsonify
 from flask_restful import Resource
 from models import db, Episode, Guest, Appearance
 
+class RootResource(Resource):
+    def get(self):
+        return {
+            "message": "Welcome to the Episodes API",
+            "endpoints": {
+                "episodes": "/episodes",
+                "episode_by_id": "/episodes/<id>",
+                "guests": "/guests",
+                "appearances": "/appearances"
+            }
+        }
+
 class EpisodesResource(Resource):
     def get(self):
         episodes = Episode.query.all()
@@ -18,6 +30,8 @@ class GuestsResource(Resource):
     def get(self):
         guests = Guest.query.all()
         return [ g.to_dict() for g in guests ], 200
+
+
 
 class AppearancesResource(Resource):
     def post(self):
