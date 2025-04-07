@@ -7,3 +7,10 @@ class EpisodesResource(Resource):
         episodes = Episode.query.all()
         return [ {"id": e.id, "date": e.date, "number": e.number} for e in episodes ], 200
 
+class EpisodeById(Resource):
+    def get(self, id):
+        episode = Episode.query.get(id)
+        if not episode:
+            return {"error": "Episode not found"}, 404
+        return episode.to_dict(), 200
+
