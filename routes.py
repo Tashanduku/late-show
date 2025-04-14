@@ -5,7 +5,7 @@ from models import db, Episode, Guest, Appearance
 class RootResource(Resource):
     def get(self):
         return {
-            "message": "Welcome to the Episodes API",
+            "message": "Access and manage episode data, guest info, and ratings all in one place",
             "endpoints": {
                 "episodes": "/episodes",
                 "episode_by_id": "/episodes/<id>",

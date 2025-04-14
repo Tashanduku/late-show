@@ -9,15 +9,15 @@ with app.app_context():
     db.session.query(Episode).delete()
     
     episodes = [
-        Episode(date="1/11/99", number=1),
-        Episode(date="1/12/99", number=2),
-        Episode(date="1/13/99", number=3),
+        Episode(date="2023-08-01", number=1),
+        Episode(date="2023-08-15", number=2),
+        Episode(date="2023-09-01", number=3),
     ]
     
     guests = [
-        Guest(name="Chunxy", occupation="artist"),
-        Guest(name="Dennis", occupation="comedian"),
-        Guest(name="Willy Paul", occupation="musician"),
+        Guest(name="Uncle Waffles", occupation="DJ"),
+        Guest(name="Kabza De Small", occupation="DJ/Producer"),
+        Guest(name="Alyn Sano", occupation="musician"),
     ]
     
     db.session.add_all(episodes + guests)
