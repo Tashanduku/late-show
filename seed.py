@@ -14,3 +14,12 @@ print("Seeding guests...")
         guest2 = Guest(name="Dennis", occupation="comedian")
         guest3 = Guest(name="Willy Paul", occupation="musician")
         db.session.add_all([guest1, guest2, guest3])
+
+
+print("Seeding appearances...")
+        appearance1 = Appearance(episode_id=1, guest_id=1, rating=4)
+        appearance2 = Appearance(episode_id=1, guest_id=2, rating=4)
+        appearance3 = Appearance(episode_id=2, guest_id=3, rating=5)
+        appearance4 = Appearance(episode_id=3, guest_id=1, rating=1)
+        appearance5 = Appearance(episode_id=3, guest_id=2, rating=2)
+        db.session.add_all([appearance1, appearance2, appearance3, appearance4, appearance5])
